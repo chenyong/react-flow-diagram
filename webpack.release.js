@@ -5,13 +5,9 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
+	mode: "production",
 	entry: {
-		vendor: [
-			"react",
-			"react-dom",
-			"react-router-dom",
-			"font-awesome/css/font-awesome.min.css"
-		],
+		vendor: ["react", "react-dom", "react-router-dom", "font-awesome/css/font-awesome.min.css"],
 		main: ["./src/main.tsx"]
 	},
 	output: {
@@ -31,14 +27,14 @@ module.exports = {
 				default: {
 					minChunks: 2,
 					priority: -20,
-					reuseExistingChunk: true,
+					reuseExistingChunk: true
 				},
 				vendors: {
 					test: /[\\/]node_modules[\\/]/,
 					priority: -10
 				}
 			}
-		},
+		}
 	},
 	module: {
 		rules: [
