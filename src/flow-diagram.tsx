@@ -1,6 +1,10 @@
 import React from "react";
+import { css, cx } from "emotion";
 import produce from "immer";
 import _ from "lodash";
+
+import DiagramCard from "./card";
+import DiagramLine from "./line";
 
 interface IProps {}
 
@@ -18,6 +22,14 @@ export default class FlowDiagram extends React.Component<IProps, IState> {
 	}
 
 	render() {
-		return <div>this is the diagram</div>;
+		return (
+			<svg width={400} height={400} className={styleSvg}>
+				<DiagramCard x={30} y={40} />
+			</svg>
+		);
 	}
 }
+
+const styleSvg = css`
+	background-color: #eee;
+`;
